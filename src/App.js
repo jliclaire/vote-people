@@ -9,22 +9,26 @@ class App extends Component {
       {
         firstName: "Sara",
         lastName: "Hegdal",
-        city: "Hawaii"
+        city: "Hawaii",
+        votes: 0
       },
       {
         firstName: "Cahal",
         lastName: "Louis",
-        city: "Jakarta"
+        city: "Jakarta",
+        votes: 0
       },
       {
         firstName: "Edite",
         lastName: "Williams",
-        city: "Perth"
+        city: "Perth",
+        votes: 0
       },
       {
         firstName: "Billy",
         lastName: "Wong",
-        city: "Hong Kong"
+        city: "Hong Kong",
+        votes: 0
       }
     ],
     voteCounts: 0
@@ -34,6 +38,10 @@ class App extends Component {
     const currentVoteCounts = this.state.voteCounts;
     this.setState({ voteCounts: currentVoteCounts + 1 });
   };
+
+  // countIndividualVotes=()=>{
+  //   const currentIndividualCounts = this.state.people
+  // }
 
   handleSortByCityClick = array => {
     const sortedArray = array.sort((a, b) => {
@@ -110,6 +118,7 @@ class App extends Component {
               key={index}
               value={element}
               totalVotes={this.countTotalVotes}
+              totalIndividualVotes={this.countIndividualVotes}
             />
           ))}
         </div>

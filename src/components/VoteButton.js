@@ -6,18 +6,15 @@ class VoteButton extends Component {
   };
 
   handleClick = () => {
-    const currentVotes = this.state.numberOfVotes;
-    this.setState({ numberOfVotes: currentVotes + 1 });
+    // const currentVotes = this.props.votes;
+    // this.setState({ numberOfVotes: currentVotes + 1 });
 
     this.props.updateVotes();
+    this.props.updateIndividualVotes();
   };
 
   render() {
-    return (
-      <button onClick={this.handleClick}>
-        Voted {this.state.numberOfVotes} times
-      </button>
-    );
+    return <button onClick={this.handleClick}>Click</button>;
   }
 }
 

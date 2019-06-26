@@ -3,8 +3,16 @@ import VoteButton from "./VoteButton";
 import "./Person.css";
 
 class Person extends Component {
+  state = {
+    votes: 0
+  };
   addNewVote = () => {
     this.props.totalVotes();
+  };
+
+  addIndividualVotes = () => {
+    const currentIndividualVotes = this.state.votes;
+    this.setState({ votes: currentIndividualVotes + 1 });
   };
 
   render() {
@@ -13,8 +21,13 @@ class Person extends Component {
         <p>
           {this.props.value.firstName} {this.props.value.lastName} from{" "}
           {this.props.value.city}
-        </p>
-        <VoteButton updateVotes={this.addNewVote} />
+        </p>{" "}
+        <p>Votes count: {this.state.votes}</p>
+        <VoteButton
+          updateVotes={this.addNewVote}
+          updateIndividualVotes={this.addIndividualVotes}
+          votes={this.state.votes}
+        />
       </div>
     );
   }
