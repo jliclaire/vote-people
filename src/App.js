@@ -39,9 +39,10 @@ class App extends Component {
     this.setState({ voteCounts: currentVoteCounts + 1 });
   };
 
-  // countIndividualVotes=()=>{
-  //   const currentIndividualCounts = this.state.people
-  // }
+  countIndividualVotes = person => {
+    let foundPerson = this.state.people.filter(item => item === person);
+    foundPerson[0].votes++;
+  };
 
   handleSortByCityClick = array => {
     const sortedArray = array.sort((a, b) => {

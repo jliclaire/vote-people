@@ -11,8 +11,7 @@ class Person extends Component {
   };
 
   addIndividualVotes = () => {
-    const currentIndividualVotes = this.state.votes;
-    this.setState({ votes: currentIndividualVotes + 1 });
+    this.props.totalIndividualVotes(this.props.value);
   };
 
   render() {
@@ -22,11 +21,10 @@ class Person extends Component {
           {this.props.value.firstName} {this.props.value.lastName} from{" "}
           {this.props.value.city}
         </p>{" "}
-        <p>Votes count: {this.state.votes}</p>
+        <p>Votes count: {this.props.value.votes}</p>
         <VoteButton
           updateVotes={this.addNewVote}
           updateIndividualVotes={this.addIndividualVotes}
-          votes={this.state.votes}
         />
       </div>
     );

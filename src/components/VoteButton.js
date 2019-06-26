@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 
 class VoteButton extends Component {
-  state = {
-    numberOfVotes: 0
-  };
-
   handleClick = () => {
-    // const currentVotes = this.props.votes;
-    // this.setState({ numberOfVotes: currentVotes + 1 });
-
     this.props.updateVotes();
     this.props.updateIndividualVotes();
   };
